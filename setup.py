@@ -8,7 +8,7 @@ import os
 import sys
 
 
-name = 'django-simply-robots'
+name = 'django-simple-robots'
 package = 'simple_robots'
 description = 'Simple robots.txt file serving for web applications'
 url = 'http://www.dabapps.com'
