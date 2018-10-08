@@ -1,3 +1,16 @@
+INSTALLED_APPS = [
+    'simple_robots'
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {},
+    },
+]
+
 
 DATABASES = {
     'default': {
