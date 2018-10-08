@@ -19,10 +19,10 @@ Install from PIP
 In your root urlconf, add an entry as follows:
 
     from django.conf.urls import url
-    from simple_robots.views import ServeRobotsView
+    from simple_robots.views import serve_robots
 
     urlpatterns = [
-        url(r'robots.txt', ServeRobotsView.as_view()),
+        url(r'robots.txt', serve_robots),
         # ..... other stuff
     ]
 

@@ -14,3 +14,6 @@ class ServeRobotsView(TemplateView):
         if getattr(settings, ROBOTS_ALLOW_HOST_SETTING, None) == self.request.get_host():
             return ROBOTS_ALLOW_TEMPLATE
         return ROBOTS_DISALLOW_TEMPLATE
+
+
+serve_robots = ServeRobotsView.as_view()
