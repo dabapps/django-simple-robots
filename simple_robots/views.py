@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 
 
 ROBOTS_ALLOW_HOST_SETTING = 'ROBOTS_ALLOW_HOST'
+ROBOTS_ALLOW_TEMPLATE = "robots.txt"
+ROBOTS_DISALLOW_TEMPLATE = "robots-disallow.txt"
 
 
 class ServeRobotsView(TemplateView):
@@ -10,5 +12,5 @@ class ServeRobotsView(TemplateView):
 
     def get_template_names(self):
         if getattr(settings, ROBOTS_ALLOW_HOST_SETTING, None) == self.request.get_host():
-            return "robots.txt"
-        return "robots-disallow.txt"
+            return ROBOTS_ALLOW_TEMPLATE
+        return ROBOTS_DISALLOW_TEMPLATE
