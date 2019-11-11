@@ -1,23 +1,19 @@
 from django.conf import settings
-from django.http import HttpResponse
-
-
-DENY_ALL = """
-User-agent: *
-Disallow: /
-""".strip()
-
-
-ALLOW_ALL = """
-User-agent: *
-Allow: /
-""".strip()
+from django.views.generic import TemplateView
 
 
 ROBOTS_ALLOW_HOST_SETTING = 'ROBOTS_ALLOW_HOST'
+ROBOTS_ALLOW_TEMPLATE = "robots.txt"
+ROBOTS_DISALLOW_TEMPLATE = "robots-disallow.txt"
 
 
-def serve_robots(request):
-    if getattr(settings, ROBOTS_ALLOW_HOST_SETTING, None) == request.get_host():
-        return HttpResponse(ALLOW_ALL, content_type='text/plain')
-    return HttpResponse(DENY_ALL, content_type='text/plain')
+class ServeRobotsView(TemplateView):
+    content_type = "text/plain"
+
+    def get_template_names(self):
+        if getattr(settings, ROBOTS_ALLOW_HOST_SETTING, None) == self.request.get_host():
+            return ROBOTS_ALLOW_TEMPLATE
+        return ROBOTS_DISALLOW_TEMPLATE
+
+
+serve_robots = ServeRobotsView.as_view()
