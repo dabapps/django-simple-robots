@@ -26,7 +26,9 @@ In your root urlconf, add an entry as follows:
         # ..... other stuff
     ]
 
-Optionally, set `ROBOTS_ALLOW_HOST` in your `settings.py`
+Then, add `simple_robots` to `INSTALLED_APPS` in your `settings.py`
+
+Optionally, set `ROBOTS_ALLOW_HOST` settings variable.
 
     ROBOTS_ALLOW_HOST = "myproductionurl.com"
 
