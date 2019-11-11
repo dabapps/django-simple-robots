@@ -35,3 +35,7 @@ That's it!
 ### Customization
 
 The allow and disallow template are stored at `robots.txt` and `robots-disallow.txt` respectively. You can override these in your projects templates directory to customize the responses.
+
+### Code of conduct
+
+For guidelines regarding the code of conduct when contributing to this repository please review [https://www.dabapps.com/open-source/code-of-conduct/](https://www.dabapps.com/open-source/code-of-conduct/)
