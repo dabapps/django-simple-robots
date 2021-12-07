@@ -8,7 +8,7 @@ Most web applications shouldn't be indexed by Google. This app just provides a v
 
 In some cases, you do want your app to be indexed - but only in your production environment (not any staging environments). For this case, you can set `ROBOTS_ALLOW_HOST`. If the incoming hostname matches this setting, an "allow all" robots.txt will be served. Otherwise, the "deny all" will be served.
 
-Tested against Django 2.2, 3.0, 3.1, 3.2 on Python 3.6, 3.7, 3.8, 3.9 and 3.10
+Tested against Django 2.2, 3.2 and 4.0 on Python 3.6, 3.7, 3.8, 3.9 and 3.10
 
 ### Installation
 
