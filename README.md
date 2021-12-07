@@ -22,7 +22,7 @@ In your root urlconf, add an entry as follows:
     from simple_robots.views import serve_robots
 
     urlpatterns = [
-        url(r'robots.txt', serve_robots),
+        path("robots.txt", serve_robots),
         # ..... other stuff
     ]
 

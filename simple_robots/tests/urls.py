@@ -1,6 +1,6 @@
-from django.conf.urls import url
+from django.urls import path
 from simple_robots.views import serve_robots
 
 urlpatterns = [
-    url(r"robots.txt", serve_robots),
+    path("robots.txt", serve_robots),
 ]
