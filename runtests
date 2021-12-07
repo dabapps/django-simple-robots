@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+set -e
+
+black --check simple_robots
+flake8 simple_robots
+isort --check --diff simple_robots
+python manage.py test --noinput $@
