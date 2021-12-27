@@ -10,9 +10,10 @@ class ServeRobotsView(TemplateView):
     content_type = "text/plain"
 
     def get_template_names(self):
+        robots_allow_host_setting = getattr(settings, ROBOTS_ALLOW_HOST_SETTING, None)
         if (
-            getattr(settings, ROBOTS_ALLOW_HOST_SETTING, None)
-            == self.request.get_host()
+            robots_allow_host_setting is not None
+            and self.request.get_host() in robots_allow_host_setting
         ):
             return ROBOTS_ALLOW_TEMPLATE
         return ROBOTS_DISALLOW_TEMPLATE

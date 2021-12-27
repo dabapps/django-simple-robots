@@ -32,6 +32,10 @@ Optionally, set `ROBOTS_ALLOW_HOST` settings variable.
 
     ROBOTS_ALLOW_HOST = "myproductionurl.com"
 
+You can use Django / Wagtail's Multisite functionality, you just need to add the allowed domains separated by spaces 
+
+    ROBOTS_ALLOW_HOST = "myproductionurl.com myotherproductionurl.com"
+
 That's it!
 
 ### Customization
