@@ -3,5 +3,4 @@
 set -e
 
 black simple_robots
-flake8 simple_robots
 isort simple_robots
