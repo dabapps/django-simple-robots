@@ -6,7 +6,7 @@ django-simple-robots
 
 Most web applications shouldn't be indexed by Google. This app just provides a view that serves a "deny all" robots.txt.
 
-In some cases, you do want your app to be indexed - but only in your production environment (not any staging environments). For this case, you can set `ROBOTS_ALLOW_HOST`. If the incoming hostname matches this setting, an "allow all" robots.txt will be served. Otherwise, the "deny all" will be served.
+In some cases, you do want your app to be indexed - but only in your production environment (not any staging environments). For this case, you can set `ROBOTS_ALLOW_HOSTS`. If the incoming hostname matches this setting, an "allow all" robots.txt will be served. Otherwise, the "deny all" will be served.
 
 Tested against Django 2.2, 3.2 and 4.0 on Python 3.6, 3.7, 3.8, 3.9 and 3.10
 
@@ -14,25 +14,40 @@ Tested against Django 2.2, 3.2 and 4.0 on Python 3.6, 3.7, 3.8, 3.9 and 3.10
 
 Install from PIP
 
-    pip install django-simple-robots
+```bash
+pip install django-simple-robots
+```
 
 In your root urlconf, add an entry as follows:
 
-    from django.conf.urls import url
-    from simple_robots.views import serve_robots
+```python
+from django.conf.urls import url
+from simple_robots.views import serve_robots
 
-    urlpatterns = [
-        path("robots.txt", serve_robots),
-        # ..... other stuff
-    ]
+urlpatterns = [
+    path("robots.txt", serve_robots),
+    # ..... other stuff
+]
+```
 
-Then, add `simple_robots` to `INSTALLED_APPS` in your `settings.py`
+Then, add `simple_robots` to `INSTALLED_APPS` in your `settings.py`.
 
-Optionally, set `ROBOTS_ALLOW_HOST` settings variable.
+Optionally, set `ROBOTS_ALLOW_HOSTS` settings variable.
 
-    ROBOTS_ALLOW_HOST = "myproductionurl.com"
+```python
+ROBOTS_ALLOW_HOSTS = ["myproductionurl.com"]
+```
+
+`ROBOTS_ALLOW_HOSTS` also supports multiple options, similar to [`ALLOWED_HOSTS`](https://docs.djangoproject.com/en/stable/ref/settings/#allowed-hosts):
+
+```python
+# Allow all subdomains of `myproductionurl.com` (including the apex) and exactly `myotherproductionurl.com` (no subdomains)
+ROBOTS_ALLOW_HOSTS = [".myproductionurl.com", "myotherproductionurl.com"]
+```
 
 That's it!
+
+Note: Previous versions used `ROBOTS_ALLOW_HOST` to specify a single allowed host. This setting still exists for backwards compatibility.
 
 ### Customization
 
