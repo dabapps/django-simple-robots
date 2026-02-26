@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-simple-robots"
+version = "1.1.0"
+description = "Simple robots.txt file serving for web applications"
+readme = "README.md"
+license = "BSD-3-Clause"
+license-files = ["LICENSE"]
+authors = [{ name = "DabApps", email = "hello@dabapps.com" }]
+requires-python = ">=3.10"
+
+[project.urls]
+Homepage = "https://github.com/dabapps/django-simple-robots/"
+Repository = "https://github.com/dabapps/django-simple-robots/"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["simple_robots*"]
+
+[tool.setuptools.package-data]
+simple_robots = ["templates/*.txt"]
